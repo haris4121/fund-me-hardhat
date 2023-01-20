@@ -7,4 +7,10 @@ module.exports = {
         compilers: [{ version: "0.8.17" }, { version: "0.6.6" }],
     },
     defaultNetwork: "hardhat",
+    namedAccounts: {
+        deployer: {
+            default: 0,
+            1: 0,
+        },
+    },
 }
