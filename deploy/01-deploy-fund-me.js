@@ -13,7 +13,7 @@ module.exports = async (hre) => {
 
     const fundMe = await deploy("FundMe", {
         from: deployer,
-        args: [],
+        args: [ /*we have to put address of pricefedd here*/ ],
         log: true,
     })
 }
