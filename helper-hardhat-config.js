@@ -3,11 +3,11 @@
 const networkConfig = {
     5: {
         name: "groeli",
-        ethUsd: "0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e",
+        ethUsdAddress: "0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e",
     },
     137: {
         name: "polygon",
-        ethUsd: "0x19b0F0833C78c0848109E3842D34d2fDF2cA69BA",
+        ethUsdAddress: "0x19b0F0833C78c0848109E3842D34d2fDF2cA69BA",
     },
 }
 const developmentChains = ["hardhat", "localhost"]
