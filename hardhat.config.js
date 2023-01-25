@@ -29,11 +29,11 @@ module.exports = {
         apiKey: ETHERSCAN_API_KEY
     },
     gasReporter: {
-        enabled: false, //keep it false for fast operation but gas report will not be printed
+        enabled: true, //keep it false for fast operation but gas report will not be printed
         outputFile: "gas-report.txt",
         noColors: true,
-        currency: "USD",
-        coinmarketCap: COINT_MARKET_CAP_API
+        currency: "USD"
+        // coinmarketCap: COINT_MARKET_CAP_API
     },
     namedAccounts: {
         deployer: {

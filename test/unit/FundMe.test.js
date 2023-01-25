@@ -21,7 +21,7 @@ describe("FundMe", () => {
 
     describe("constructor", function() {
         it("sets the aggregator address correctly", async () => {
-            const response = await fundMe.PriceFeed()
+            const response = await fundMe.getPriceFeed()
             assert.equal(response, mockV3Aggregator.address)
         })
     })
@@ -32,12 +32,12 @@ describe("FundMe", () => {
         })
         it("update the amount funded data structure", async () => {
             await fundMe.fund({ value: sendVal })
-            const response = await fundMe.addressToAmountFunded(deployer)
+            const response = await fundMe.getAddressToAmount(deployer)
             assert.equal(response.toString(), sendVal.toString())
         })
         it("adds array funder to array of funder", async () => {
             await fundMe.fund({ value: sendVal })
-            const funder = await fundMe.funders(0)
+            const funder = await fundMe.getFunder(0)
             assert.equal(deployer, funder)
         })
     })
@@ -75,7 +75,7 @@ describe("FundMe", () => {
             )
         })
 
-        it("it helps us to withdraw from diffrent funders", async () => {
+        it("it helps us to withdraw from diffrent s_funders", async () => {
             const accounts = await ethers.getSigners()
             for (let i = 1; i < 6; i++) {
                 const fundMeConnectedContract = fundMe.connect(accounts[i])
@@ -94,12 +94,12 @@ describe("FundMe", () => {
             const { gasUsed, effectiveGasPrice } = transactionReciept
             const gasCost = gasUsed.mul(effectiveGasPrice)
 
-            //reset funders
-            await expect(fundMe.funders(0)).to.be.reverted
+            //reset s_funders
+            await expect(fundMe.getFunder(0)).to.be.reverted
 
             for (let i = 1; i < 6; i++) {
                 assert.equal(
-                    await fundMe.addressToAmountFunded(accounts[i].address),
+                    await fundMe.getAddressToAmount(accounts[i].address),
                     0
                 )
             }
