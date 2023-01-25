@@ -4,6 +4,7 @@ require("@nomiclabs/hardhat-etherscan")
 require("hardhat-gas-reporter")
 require("solidity-coverage")
 require("hardhat-deploy")
+require("@nomicfoundation/hardhat-chai-matchers")
 
 const GROELI_RPC_URL = process.env.GROELI_RPC_URL
 const PRIVATE_KEY = process.env.PRIVATE_KEY
